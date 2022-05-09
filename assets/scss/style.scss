@@ -1,1 +1,7 @@
 @import "./core/reset";
+@import "./abstracts/variables";
+
+body{
+    color: $white;
+    font-family: $poppin;
+}
