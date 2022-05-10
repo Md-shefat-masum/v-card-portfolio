@@ -1,0 +1,35 @@
+@mixin google_font($names) {
+    @import url("https://fonts.googleapis.com/css2?#{$names}");
+}
+
+@mixin flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex; 
+}
+
+@mixin flex_wrap {
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+@mixin flex_justify($value) {
+    -webkit-justify-content: $value;
+    justify-content: $value;
+}
+
+@mixin flex_align($value) {
+    -webkit-align-content: $value;
+    align-content: $value;
+}
+
+@mixin tr($t:.3s) {
+    transition: all linear .3s;
+    -webkit-transition: all linear .3s;
+    -moz-transition: all linear .3s;
+    -ms-transition: all linear .3s;
+    -o-transition: all linear .3s;
+}

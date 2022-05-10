@@ -87,6 +87,12 @@ video {
     vertical-align: baseline;
 }
 
+a,
+span,
+i {
+    display: inline-block;
+}
+
 /* make sure to set some focus styles for accessibility */
 :focus {
     outline: 0;

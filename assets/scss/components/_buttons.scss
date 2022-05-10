@@ -1,0 +1,39 @@
+@use "sass:map";
+@import "../abstracts/variables";
+
+@mixin btn($border: $black, $color: $black) {
+    color: $color;
+    font-size: 12px;
+    padding: 10px 20px;
+    border: 1px solid $border;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    -ms-border-radius: 35px;
+    -o-border-radius: 35px;
+}
+
+@mixin btn_outline($btn_style, $border: map.get($color_value, $btn_style+'_deep'), $background: transparent) {
+    color: map.get($color_value, $btn_style+'_deep');
+    border: 1px solid $border;
+    background: $background;
+}
+
+@mixin btn_fill($btn_style, $border: map.get($color_value, $btn_style+'_deep'), $background: map.get($color_value, $btn_style+'_deep')) {
+    color: map.get($color_value, $btn_style+'_light');
+    background-color: $background;
+    border: 1px solid $border;
+}
+
+@mixin create_button ($btn_name:'', $color, $background_color) {
+    @if $btn_name {
+        .btn-#{"" +$btn_name} {
+            background-color: $color;
+            color: $background_color;
+        }
+    }
+}
+
+@each $btn_name in $color_names {
+    @include create_button($btn_name, map.get($color_value, $btn_name+'_deep'), map.get($color_value, $btn_name+'_light'));
+}

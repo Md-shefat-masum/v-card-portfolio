@@ -1,7 +1,7 @@
 @import "./core/reset";
+@import "./core/typography";
 @import "./abstracts/variables";
-
-body{
-    color: $white;
-    font-family: $poppin;
-}
+@import "./vendors/grid";
+@import "./vendors/framework";
+@import "./components/buttons";
+@import "./layouts/header";

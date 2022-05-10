@@ -1,0 +1,58 @@
+@use "../components/buttons";
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+header {
+    border-top: 2px solid $green_deep;
+    
+    nav {
+        @include flex();
+        @include flex_wrap();
+        @include flex_justify(space-between);
+
+        .left {
+            .logo {
+                height: 48px;
+
+                img {
+                    height: 100%;
+                }
+            }
+        }
+
+        .right {
+            @include flex();
+            @include flex_wrap();
+            @include flex_justify(flex-end);
+            @include flex_align(center);
+
+            ul {
+                @include flex();
+                @include flex_wrap();
+                @include flex_justify(flex-end);
+
+                li {
+                    a {
+                        text-decoration: none;
+                        font-family: $poppins;
+                        font-weight: bold;
+                        text-transform: uppercase;
+                        @include buttons.btn($border: transparent);
+                        
+                        @include tr();
+
+                        &:hover {
+                            @include buttons.btn_outline('green');
+                        }
+                    }
+
+                    margin: 0px 5px;
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+            }
+        }
+    }
+}

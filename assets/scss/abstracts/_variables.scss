@@ -1,5 +1,8 @@
-$poppin: 'Poppins',
+// font family
+$poppins: 'Poppins',
 sans-serif;
+
+// color
 $green_deep: #00a652;
 $green_light: #4cb050;
 $grenn_transparent: #ddf0dd;
@@ -9,3 +12,30 @@ $yellow_light: #ffeacd;
 $red_deep: #fe5722;
 $red_light: #ffddd3;
 $white: #ffffff;
+
+$color_names: yellow,
+green,
+red;
+
+$color_value: (
+    yellow_deep: #fbb053, 
+    yellow_light: #ffeacd, 
+    
+    green_deep: #00a652,
+    green_light: $white,
+
+    red_deep: #fe5722, 
+    red_light: #ffddd3,
+);
+
+// grid variables
+$total_grid: 12;
+
+// responsive variables
+$break_points: ("xs": 0px, "sm": 576px, "md": 768px, "lg": 992px, "xl": 1200px, "xxl": 1400px);
+$break_point_names: xs,
+sm,
+md,
+lg,
+xl,
+xxl;

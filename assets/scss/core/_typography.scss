@@ -1,5 +1,16 @@
-@font-face {
-    font-family: 'Poppins', sans-serif;
-    src: url('../../fonts/Poppins/Poppins-Regular.ttf');
-}
+@import "../abstracts/mixins";
 
+// @font-face {
+//     font-family: 'Poppins';
+//     src: url('../fonts/Poppins/Poppins-Regular.ttf');
+// }
+
+// @include googe_font("family=Lato&family=Poppins&family=Roboto");
+
+// if more family need just add new with a comma eg: Lato, Roboto;
+
+$font_families: Poppins;
+
+@each $family in $font_families {
+    @include google_font("family=#{$family}");
+}
