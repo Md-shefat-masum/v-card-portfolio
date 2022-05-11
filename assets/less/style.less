@@ -1,0 +1,114 @@
+/*
+    1. variable, map_variable @v:{}
+    2. nested selection
+    3. & selection
+    4. conditional selection & {}
+    5. .mixin, .mixin when(), :extend(){}
+    6. @import
+    9. if(condition, true, false), type function
+    10. list, extract
+    10. each, range
+    11. recursive mixin
+*/
+@import "./abstracts/_mixins.less";
+
+@colors: red, blue, green;
+@length: length(@colors);
+
+
+.c_btn(@i) when(@i<6){
+    .btn-@{i}{
+        width: 40px;
+    }
+
+    .c_btn(@i+1);
+}
+
+.c_btn(1);
+
+// each(@colors,{
+//     .btn-@{value}{
+//         color: @value;
+//     }
+// });
+
+// each(range(0, 50, 5),{
+//     @value: @value * 5;
+//     .m-@{value}{
+//         margin: @value * 1px;
+//     }
+// })
+
+// a {
+//     color: extract(@colors, 3);
+//     display: inline-block;
+// }
+
+// i:extend(a) {
+//     color: red;
+//     .box(@h: 20px, @w: 40px);
+// }
+
+
+// .create(@b) when(@b){
+//     border: @b;
+// }
+
+// .create(@b: 4px){
+//     border: @b;
+// }
+
+// .btn{
+//     .create();
+// }
+
+// .create_btn(@p: unset, @b: unset) {
+//     border-width: if(isunit(@b, px), @b, 5px);
+//     padding: if(isunit(@p, px), @p, 5px);
+// }
+
+// .btn {
+//     .create_btn(@p: 30px, @b: 40px);
+// }
+
+// @a: red;
+// @b: border;
+// @s: .select;
+
+// @red_color: rgb(0, 136, 255);
+// @name: red_color;
+
+
+// @list: {
+//     sm: 430px;
+//     md: 768px;
+// }
+
+// @{s} {
+//     color: @@name;
+//     @{b}: 0;
+//     width: @list[md]
+// }
+
+// div {
+
+//     ul {
+//         &::after {
+//             content: '';
+//         }
+
+//         li {
+//             &:hover {
+//                 list-style-type: none;
+//             }
+
+//             a {
+//                 display: inline-block;
+
+//                 .body.theme_2 & {
+//                     display: block;
+//                 }
+//             }
+//         }
+//     }
+// }

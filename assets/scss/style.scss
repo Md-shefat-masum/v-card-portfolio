@@ -1,0 +1,155 @@
+/*
+    1. variable
+    2. nested selection
+    3. & selection
+    4. conditional selection & {}
+    5. @mixin @include
+    6. @import
+    7. @use
+    8. @include
+    9. @if @else
+    10. @each
+    11. @for
+    12. sass:map
+*/
+@use "sass:map";
+
+$break_poins: (
+    xs: 0px,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+);
+
+@media (min-width: map.get($break_poins, lg)) {
+    div{
+        width: map.get($break_poins, lg);
+    }
+}
+
+// @each $key, $value in $break_poins {
+//     @media (min-width: $value) {
+//         @if($value == 0px){
+//             $value: 100%;
+//         }
+//         .container-#{$key}{
+//             width: $value;
+//         }
+//     }
+// }
+
+// $btn_style: red, yellow, green, black;
+
+// @mixin make_margin($start:false, $end: flase) {
+//     @for $i from $start to $end {
+//         .m-#{$i*5}{
+//             margin: ($i*5)+px;
+//         }
+//     }
+// }
+
+// @include make_margin(0, 21);
+
+// @media (min-width: 576px) {
+//     @include make_margin(0, 21);
+// }
+
+// @each $color in $btn_style {
+//     .btn-#{$color}{
+//         color: $color;
+//     }
+// }
+
+// @mixin make_b($border: false ) {
+//     @if($border){
+//         border: $border;
+//     }@else{
+//         border: unset;
+//     }
+// }
+
+// div{
+//     @include make_b();
+// }
+
+// @use "./abstracts/mixins"as m;
+
+// b {
+//     color: m.$color;
+// }
+
+// div {
+//     @include m.btn;
+// }
+
+// ul {
+//     @include mixins.btn;
+// }
+
+// .btn {
+//     @include mixins.btn($border:black, $color:red);
+// }
+
+// .div {
+//     @include mixins.btn(green, purple);
+// }
+
+// $color: 100%;
+// $size: 10;
+// $unit: rem;
+// $ff: font-family;
+// $selector: btn-success-asdjflad-adfd;
+
+// .#{$selector} {
+//     width: $size+$unit;
+//     color: $color;
+//     background-color: red;
+//     #{$ff}: sans-serif;
+// }
+
+// .btn{
+//     color: black;
+
+//     body.theme_2 & {
+//         color: white;
+//     }
+
+//     body.theme_3 & {
+//         color: rgb(132, 43, 43);
+//     }
+
+
+//     // & &-success{
+//     //     color: green;
+//     // }
+// }
+
+// div {
+//     border: 1px solid red;
+
+//     ul {
+//         padding: 0;
+
+//         li {
+//             list-style-type: none;
+
+
+
+//             a {
+//                 display: inline-block;
+
+//                 &.active{
+//                     background-color: red;
+//                 }
+
+//                 &::after {
+//                     content: '';
+//                 }
+
+//                 &:hover {
+//                     color: yellow;
+//                 }
+//             }
+//         }
+//     }
+// }

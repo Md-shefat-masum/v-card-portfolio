@@ -1,0 +1,28 @@
+/*
+    1. variable, map_variable @v:{}
+    2. nested selection
+    3. & selection
+    4. conditional selection & {}
+    5. .mixin, .mixin when(), :extend(){}
+    6. @import
+    9. if(condition, true, false), type function
+    10. list, extract
+    10. each, range
+    11. recursive mixin
+*/
+.btn-1 {
+  width: 40px;
+}
+.btn-2 {
+  width: 40px;
+}
+.btn-3 {
+  width: 40px;
+}
+.btn-4 {
+  width: 40px;
+}
+.btn-5 {
+  width: 40px;
+}
+/*# sourceMappingURL=./style.css.map */

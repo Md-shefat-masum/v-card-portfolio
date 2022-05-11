@@ -1,0 +1,30 @@
+/*
+    1. variable
+    2. nested selection
+    3. & selection
+    4. conditional selection & {}
+    5. @mixin @include
+    6. @import
+    7. @use
+    8. @if @else
+    9. @each
+    10. @for
+    11. sass:map.
+
+@use './abstracts/mixins' as m
+@use "sass:map"
+
+
+.btn
+    @include m.btn(20px)
+
+$a: red, blue, green
+$b: ( xs: 320px, sm: 575px, md: 768px)
+
+@each $i in $a
+    .btn-#{$i}
+        color: $i
+
+@each $key, $value in $b
+    .btn-#{$key}
+        width: map.get($b, $key)
