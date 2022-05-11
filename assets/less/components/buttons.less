@@ -1,0 +1,55 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+.btn(@border: @black, @radius: 5px, @color: @black) {
+    color: @color;
+    font-size: 12px;
+    padding: 10px 20px;
+    border: 1px solid @border;
+    .border_radius(@radius);
+}
+
+.btn_outline(@btn_style,
+    @border: unset,
+    @background: transparent,
+    @color: unset) {
+
+    // create map name to extract
+    @deep: "@{btn_style}_deep";
+
+    border: if(iscolor(@border), @border, @@deep);
+    color: if(iscolor(@color), @color, @@deep);
+    border: 1px solid @border;
+    background: @background;
+}
+
+.btn_fill(@btn_style,
+    @border: unset,
+    @background: unset,
+    @color:unset) {
+    // create map name to extract
+
+    @deep: "@{btn_style}_deep";
+    @light: "@{btn_style}_light";
+    
+    color: if(iscolor(@color), @color, @@deep);
+    background-color: if(iscolor(@background), @background, @@light);
+    border: 1px solid if(iscolor(@border), @border, @@light);
+}
+
+.create_button (@btn_name: '', @color, @background_color) {
+    .btn-@{btn_name} {
+        background-color: @color;
+        color: @background_color;
+    }
+}
+
+each(@color_names, {
+        @btn_name: @value;
+        @deep: "@{btn_name}_deep";
+        @light: "@{btn_name}_light";
+
+        .create_button(@btn_name, @@deep, @@light);
+    }
+
+);

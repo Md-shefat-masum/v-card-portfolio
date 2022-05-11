@@ -4,6 +4,7 @@
 
 header {
     border-top: 2px solid $green_deep;
+    padding-top: 10px;
     
     nav {
         @include flex();
@@ -37,12 +38,22 @@ header {
                         font-family: $poppins;
                         font-weight: bold;
                         text-transform: uppercase;
-                        @include buttons.btn($border: transparent);
+                        body.theme_1 & {
+                            @include buttons.btn($border: transparent);
+                        }
+                        body.theme_2 & {
+                            @include buttons.btn($border: transparent, $color: $white)
+                        }
                         
                         @include tr();
 
                         &:hover {
-                            @include buttons.btn_outline('green');
+                            body.theme_1 & {
+                                @include buttons.btn_outline('green');
+                            }
+                            body.theme_2 & {
+                                @include buttons.btn_outline('purple', $purple_light, $purple_light, $white);
+                            }
                         }
                     }
 

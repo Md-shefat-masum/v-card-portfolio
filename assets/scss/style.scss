@@ -1,7 +1,19 @@
+/*base css*/
 @import "./core/reset";
 @import "./core/typography";
 @import "./abstracts/variables";
 @import "./vendors/grid";
 @import "./vendors/framework";
+
+/*component css*/
 @import "./components/buttons";
+@import "./components/card";
+
+/*layout css*/
+@import "./layouts/wrapper";
 @import "./layouts/header";
+@import "./layouts/footer";
+
+/*page css*/
+@import "./pages/home";
+

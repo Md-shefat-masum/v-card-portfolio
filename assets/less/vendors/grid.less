@@ -1,0 +1,38 @@
+@import "../abstracts/variables";
+@import "../abstracts/mixins";
+
+
+@grid_size: 100 / @total_grid; // 100% / grid-amount
+
+.row {
+    .flex();
+    .flex_wrap();
+}
+
+each(range(12), {
+        .col-@{value} {
+            @col_no : @value;
+            -webkit-flex-basis: (@grid_size * @col_no) * 1%;
+            flex-basis: ((@grid_size * @col_no) * 1%);
+            width: ((@grid_size * @col_no) * 1%);
+        }
+    }
+);
+
+each(.break_points(), .(@v, @k, @i) {
+        @break_point_name: @k;
+        @break_point: @v;
+
+        @media (min-width:@break_point) {
+            each(range(@total_grid), {
+                    @col_no: @value;
+                    .col-@{break_point_name}-@{col_no} {
+                        -webkit-flex-basis: (@grid_size * @col_no) * 1%;
+                        flex-basis: (@grid_size * @col_no) * 1%;
+                        width: (@grid_size * @col_no) * 1%;
+                    }
+                }
+            );
+        }
+    }
+);

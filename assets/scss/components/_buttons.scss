@@ -1,26 +1,31 @@
 @use "sass:map";
 @import "../abstracts/variables";
+@import "../abstracts/mixins";
 
-@mixin btn($border: $black, $color: $black) {
+@mixin btn($border: $black, $radius: 5px, $color: $black) {
     color: $color;
     font-size: 12px;
     padding: 10px 20px;
     border: 1px solid $border;
-    border-radius: 35px;
-    -webkit-border-radius: 35px;
-    -moz-border-radius: 35px;
-    -ms-border-radius: 35px;
-    -o-border-radius: 35px;
+    @include border_radius($radius);
 }
 
-@mixin btn_outline($btn_style, $border: map.get($color_value, $btn_style+'_deep'), $background: transparent) {
-    color: map.get($color_value, $btn_style+'_deep');
+@mixin btn_outline($btn_style,
+    $border: map.get($color_value, $btn_style+'_deep'),
+    $background: transparent,
+    $color: map.get($color_value, $btn_style+'_deep')) {
+
+    color: $color;
     border: 1px solid $border;
     background: $background;
 }
 
-@mixin btn_fill($btn_style, $border: map.get($color_value, $btn_style+'_deep'), $background: map.get($color_value, $btn_style+'_deep')) {
-    color: map.get($color_value, $btn_style+'_light');
+@mixin btn_fill($btn_style, 
+    $border: map.get($color_value, $btn_style+'_light'), 
+    $background: map.get($color_value, $btn_style+'_light'),
+    $color: map.get($color_value, $btn_style+'_deep')
+    ) {
+    color: $color;
     background-color: $background;
     border: 1px solid $border;
 }

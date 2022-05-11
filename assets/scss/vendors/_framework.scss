@@ -40,17 +40,91 @@ $break_point in $break_points {
 @each $break_point_name,
 $break_point in $break_points {
     @media (min-width:$break_point) {
-        @if $break_point == 0px {
+        @if $break_point==0px {
             $break_point: 80%;
         }
-        .container{
+
+        .container {
             width: 100%;
             max-width: $break_point;
             box-sizing: border-box;
             position: relative;
             padding: 0px 15px;
-            border: 1px solid red;
+            // border: 1px solid red;
             margin: 0 auto;
         }
+    }
+}
+
+// margins mixins
+
+@each $break_point_name,
+$break_point in $break_points {
+    @media (min-width:$break_point) {
+        $step: 5;
+        $from: ceil(calc(0 /$step));
+        $through: ceil(calc(100 /$step));
+        $unit: 'px';
+
+        @for $i from $from through $through {
+            $i: $i * $step;
+
+            .m-#{$break_point_name}-#{$i} {
+                margin: $i+#{$unit};
+            }
+
+            .mt-#{$break_point_name}-#{$i} {
+                margin-top: $i+#{$unit};
+            }
+
+            .mb-#{$break_point_name}-#{$i} {
+                margin-bottom: $i+#{$unit};
+            }
+
+            .ml-#{$break_point_name}-#{$i} {
+                margin-left: $i+#{$unit};
+            }
+
+            .mr-#{$break_point_name}-#{$i} {
+                margin-left: $i+#{$unit};
+            }
+
+            .mx-#{$break_point_name}-#{$i} {
+                margin: 0+#{$unit} $i+#{$unit};
+            }
+
+            .my-#{$break_point_name}-#{$i} {
+                margin: $i+#{$unit} 0+#{$unit};
+            }
+
+            .p-#{$break_point_name}-#{$i} {
+                padding: $i+#{$unit};
+            }
+
+            .pt-#{$break_point_name}-#{$i} {
+                padding-top: $i+#{$unit};
+            }
+
+            .pb-#{$break_point_name}-#{$i} {
+                padding-bottom: $i+#{$unit};
+            }
+
+            .pl-#{$break_point_name}-#{$i} {
+                padding-left: $i+#{$unit};
+            }
+
+            .pr-#{$break_point_name}-#{$i} {
+                padding-left: $i+#{$unit};
+            }
+
+            .px-#{$break_point_name}-#{$i} {
+                padding: 0+#{$unit} $i+#{$unit};
+            }
+
+            .py-#{$break_point_name}-#{$i} {
+                padding: $i+#{$unit} 0+#{$unit};
+            }
+        }
+
     }
 }

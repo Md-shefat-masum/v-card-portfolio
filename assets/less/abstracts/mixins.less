@@ -1,0 +1,44 @@
+.google_font(@names) { 
+    // @import url("https://fonts.googleapis.com/css2?@{names}");
+    // background-color: red;
+}
+
+.flex {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+
+.flex_wrap {
+    -ms-flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.flex_justify(@value) {
+    -webkit-justify-content: @value;
+    justify-content: @value;
+}
+
+.flex_align(@value) {
+    -webkit-align-content: @value;
+    align-content: @value;
+}
+
+.tr(@t:.3s) {
+    transition: all linear @t;
+    -webkit-transition: all linear @t;
+    -moz-transition: all linear @t;
+    -ms-transition: all linear @t;
+    -o-transition: all linear @t;
+}
+
+.border_radius(@v) {
+    border-radius: @v;
+    -webkit-border-radius: @v;
+    -moz-border-radius: @v;
+    -ms-border-radius: @v;
+    -o-border-radius: @v;
+}
